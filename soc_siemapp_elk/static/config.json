@@ -1,0 +1,35 @@
+{
+  "elasticsearch": {
+    "hosts": [
+      {"host": "172.17.160.90", "port": 9200}
+    ]
+  },
+
+  "usecases": {
+    "path": "/etc/soc_siemapp_elk/usecases",
+    "index": "exc_lu_alerting",
+    "mapping": {
+      "mappings": {
+        "properties": {
+            "@timestamp":  {"type": "date"},
+            "name":        {"type": "keyword"},
+            "human_time":  {"type": "text"},
+            "attacker_ip": {"type": "ip"},
+            "target_ip":   {"type": "ip"},
+            "target_user": {"type": "text"},
+            "alert_desc":  {"type": "text"}
+        }
+      }
+    }
+  },
+
+  "notify": {
+    "host": "172.16.115.13",
+    "port": 514
+  },
+
+  "default_extra_values": [
+    "CRE",
+    "115"
+  ]
+}
